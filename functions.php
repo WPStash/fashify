@@ -36,15 +36,30 @@ function fashify_setup() {
 	add_theme_support( 'title-tag' );
 
 	/*
+	 * Enable support for custom logo.
+	 *
+	 */
+	add_theme_support( 'custom-logo', array(
+		'height'      => 54,
+		'width'       => 192,
+		'flex-height' => true,
+	) );
+
+	/*
 	 * Enable support for Post Thumbnails on posts and pages.
 	 *
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
+	add_image_size( 'fashify-thumb-default', 676, 483, true );
+	add_image_size( 'fashify-thumb-layout2', 321, 229, true );
+	add_image_size( 'fashify-thumb-layout3', 280, 220, true );
 
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'fashify' ),
+		'footer'  => esc_html__( 'Footer', 'fashify' ),
+		'social'  => esc_html__( 'Social Links', 'fashify' ),
 	) );
 
 	/*
@@ -57,18 +72,6 @@ function fashify_setup() {
 		'comment-list',
 		'gallery',
 		'caption',
-	) );
-
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
 	) );
 
 	// Set up the WordPress core custom background feature.
@@ -104,9 +107,20 @@ function fashify_widgets_init() {
 		'description'   => esc_html__( 'Add widgets here.', 'fashify' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer', 'fashify' ),
+		'id'            => 'footer',
+		'description'   => esc_html__( 'Add widgets here.', 'fashify' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h4 class="widget-title">',
+		'after_title'   => '</h4>',
+	) );
+
 }
 add_action( 'widgets_init', 'fashify_widgets_init' );
 
@@ -114,11 +128,52 @@ add_action( 'widgets_init', 'fashify_widgets_init' );
  * Enqueue scripts and styles.
  */
 function fashify_scripts() {
+
+	// Add Genericons, used in the main stylesheet.
+	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css', array(), '4.5' );
+
 	wp_enqueue_style( 'fashify-style', get_stylesheet_uri() );
+	// Add extra styling to patus-style
+   		$primary   = get_theme_mod( 'primary_color', 'f75357' );
+        $secondary = get_theme_mod( 'secondary_color', '444' );
+        $custom_css = "
+                a{color: #{$secondary}; }
+				.entry-meta a,
+				.main-navigation a:hover,
+				.main-navigation .current_page_item > a,
+				.main-navigation .current-menu-item > a,
+				.main-navigation .current_page_ancestor > a,
+				.widget_tag_cloud a:hover,
+				.social-links ul a:hover::before,
+                a:hover
+				 {
+					 color : {$primary};
+				 }
+				button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"]{
+                    background: {$primary};
+					border-color : {$primary};
+                }
+				.widget_tag_cloud a:hover { border-color : {$primary};}
+                .main-navigation a,
+				h2.entry-title a,
+				h1.entry-title,
+				.widget-title,
+				.footer-staff-picks h3
+				{
+                	color: {$secondary};
+                }
+                button:hover, input[type=\"button\"]:hover,
+				input[type=\"reset\"]:hover,
+				input[type=\"submit\"]:hover {
+                        background: {$secondary};
+						border-color: {$secondary};
+                }";
+	wp_add_inline_style( 'fashify-style', $custom_css );
 
-	wp_enqueue_script( 'fashify-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'jquery' );
+	wp_enqueue_script( 'fashify-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'fashify-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'fashify-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -127,14 +182,11 @@ function fashify_scripts() {
 add_action( 'wp_enqueue_scripts', 'fashify_scripts' );
 
 /**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
  * Custom template tags for this theme.
  */
 require get_template_directory() . '/inc/template-tags.php';
+
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom functions that act independently of the theme templates.

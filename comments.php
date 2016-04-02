@@ -52,6 +52,7 @@ if ( post_password_required() ) {
 				wp_list_comments( array(
 					'style'      => 'ol',
 					'short_ping' => true,
+					'callback'	 => 'fashify_comments'
 				) );
 			?>
 		</ol><!-- .comment-list -->
@@ -78,8 +79,8 @@ if ( post_password_required() ) {
 		<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'fashify' ); ?></p>
 	<?php
 	endif;
-
-	comment_form();
+	$args = array( 'comment_notes_before' => '' );
+	comment_form( $args );
 	?>
 
 </div><!-- #comments -->

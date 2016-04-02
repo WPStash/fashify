@@ -1,9 +1,7 @@
 <?php
 /**
- * Template part for displaying posts.
+ * Template part for displaying post grid large Layout.
  *
- * Used for both single and index/archive/search.
-
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
  * @package Fashify
@@ -12,11 +10,11 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <!-- begin .featured-image -->
+    <?php if ( has_post_thumbnail() ) { ?>
     <div class="featured-image">
-
         <?php if ( has_post_thumbnail() ) : ?><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_post_thumbnail('fashify-thumb-default'); ?></a><?php endif; ?>
-
     </div>
+    <?php } ?>
     <!-- end .featured-image -->
 
     <div class="entry-info">
