@@ -57,6 +57,12 @@
         padding: 30px 0;
     }
 }
+.full-width {
+    .content-area {
+        width: 100%;
+    }
+}
+
 .content-area {
     float: left;
     width: 65%;

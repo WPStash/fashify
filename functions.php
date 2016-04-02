@@ -134,8 +134,8 @@ function fashify_scripts() {
 
 	wp_enqueue_style( 'fashify-style', get_stylesheet_uri() );
 	// Add extra styling to patus-style
-   		$primary   = get_theme_mod( 'primary_color', 'f75357' );
-        $secondary = get_theme_mod( 'secondary_color', '444' );
+   		$primary   = get_theme_mod( 'primary_color', '#f75357' );
+        $secondary = get_theme_mod( 'secondary_color', '#444' );
         $custom_css = "
                 a{color: #{$secondary}; }
 				.entry-meta a,

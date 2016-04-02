@@ -29,6 +29,10 @@ function fashify_body_classes( $classes ) {
 		$classes[] = 'homepage-'.$homepage_layout;
 	}
 
+	if ( is_page_template( 'template-fullwidth.php' )) {
+		$classes[] = 'full-width';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'fashify_body_classes' );
