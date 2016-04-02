@@ -215,6 +215,21 @@
     }
 }
 
+/* search form */
+.search-form {
+    position: relative;
+    input {
+        height: 52px;
+    }
+    .search-submit {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: auto;
+        border-radius: 0 3px 3px 0;
+    }
+}
+
 
 /* Footer */
 .footer-staff-picks {
