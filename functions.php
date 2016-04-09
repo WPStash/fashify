@@ -129,8 +129,8 @@ add_action( 'widgets_init', 'fashify_widgets_init' );
  */
 function fashify_scripts() {
 
-	// Add Genericons, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css', array(), '4.5' );
+	// Add Font Awesome, used in the main stylesheet.
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css', array(), '4.5' );
 
 	wp_enqueue_style( 'fashify-style', get_stylesheet_uri() );
 	// Add extra styling to patus-style
