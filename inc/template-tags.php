@@ -157,7 +157,7 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  		case 'trackback' :
  	?>
  	<li class="pingback">
- 		<p><?php _e( 'Pingback:', 'techone' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'fashify' ), ' ' ); ?></p>
+ 		<p><?php _e( 'Pingback:', 'fashify' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'fashify' ), ' ' ); ?></p>
  	<?php
  			break;
  		default :
@@ -178,7 +178,7 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
  					<?php
  						/* translators: 1: date, 2: time */
- 						printf( __( '%1$s at %2$s', 'techone' ), get_comment_date(), get_comment_time() ); ?>
+ 						printf( __( '%1$s at %2$s', 'fashify' ), get_comment_date(), get_comment_time() ); ?>
  					</time></a>
  				</div><!-- .comment-meta .commentmetadata -->
  				<div class="comment-content"><?php comment_text(); ?></div>

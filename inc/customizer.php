@@ -41,6 +41,7 @@ function fashify_customize_register( $wp_customize ) {
 				$wp_customize->add_setting( 'fashify_homepage_layout',
 					array(
 						'default'           => 'default',
+						'sanitize_callback'	=> 'fashify_sanitize_select',
 					)
 				);
 
@@ -142,6 +143,7 @@ function fashify_customize_register( $wp_customize ) {
 				// Primary color setting
 				$wp_customize->add_setting( 'primary_color' , array(
 				    'default'     => '#f75357',
+					'sanitize_callback'	=> 'fashify_sanitize_hex_color',
 				) );
 
 				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_color', array(
@@ -153,6 +155,7 @@ function fashify_customize_register( $wp_customize ) {
 				// Second color setting
 				$wp_customize->add_setting( 'secondary_color' , array(
 				    'default'     => '#444',
+					'sanitize_callback'	=> 'fashify_sanitize_hex_color',
 				) );
 				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
 					'label'        => __( 'Secondary Color', 'fashify' ),
