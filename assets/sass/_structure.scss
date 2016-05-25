@@ -65,27 +65,27 @@
 
 .content-area {
     float: left;
-    width: 65%;
-    @include media-breakpoint-down(md){
-        width: 100%;
+    width: 100%;
+    @include media-breakpoint-up(md){
+        width: 65%;
     }
 }
 .sidebar {
     float: right;
-    width: 30%;
-    @include media-breakpoint-down(md){
-        width: 100%;
-        margin-top: 40px;
+    width: 100%;
+    margin-top: 40px;
+    @include media-breakpoint-up(md){
+        width: 30%;
+        margin-top: 0px;
     }
 }
 
 /* Home post layout */
 .post-grid {
-    width: 47.5%;
+    width: 100%;
     border-bottom: 1px solid #e6e6e6;
-	@include media-breakpoint-down(sm) {
-		width: 100%;
-
+	@include media-breakpoint-up(sm) {
+		width: 47.5%;
 	}
 
 	.featured-image img {
@@ -109,18 +109,17 @@
 	border-bottom: 1px solid #e6e6e6;
 	.featured-image {
 		float: left;
-		width: 280px;
+		width: 100%;
 		margin-right: 30px;
-		@include media-breakpoint-down(sm) {
-			float: none;
-			width: 100%;
+		@include media-breakpoint-up(sm) {
+			width: 280px;
 		}
 	}
 	.ft-post-right {
-		margin-left: 310px;
-		overflow: hidden;
-		@include media-breakpoint-down(sm) {
-			margin-left: 0;
+		margin-left: 0;
+		@include media-breakpoint-up(sm) {
+			margin-left: 310px;
+            overflow: hidden;
 		}
 	}
 	.entry-meta {
@@ -245,18 +244,30 @@
     }
     .hentry {
         border: none;
-        width: 25%;
+        width: 100%;
         float: left;
         margin-bottom: 20px;
         padding: 0 10px;
-        @include media-breakpoint-down(md) {
+        @include media-breakpoint-up(sm) {
             width: 50%;
-            &:nth-of-type(odd){
+            &:nth-of-type(2n+1) {
                 clear: both;
             }
         }
-        @include media-breakpoint-down(sm) {
-            width: 100%;
+        @include media-breakpoint-up(md) {
+            width: 33.3333%;
+            &:nth-of-type(2n+1) {
+                clear: none;
+            }
+            &:nth-of-type(3n+1) {
+                clear: both;
+            }
+        }
+        @include media-breakpoint-up(lg) {
+            width: 25%;
+            &:nth-of-type(3n+1) {
+                clear: none;
+            }
         }
         .featured-image {
             margin-bottom: 10px;
@@ -276,6 +287,13 @@
     }
 }
 
+.footer-inner {
+    margin: 0;
+    overflow: hidden;
+    @include media-breakpoint-up(md) {
+        margin: 0 -20px;
+    }
+}
 .footer-widgets {
     border-bottom: 1px solid #e5e5e5;
     border-top: 1px solid #e5e5e5;
@@ -284,17 +302,27 @@
     .widget {
         box-sizing: border-box;
         float: left;
-        width: 25%;
+        width: 100%;
         margin-bottom: 20px;
-        padding: 0 20px;
+        padding: 0;
         li {
             border: none;
             margin-bottom: 7px;
             padding-bottom: 7px;
         }
-        @include media-breakpoint-down(sm) {
-            width: 100%;
-            padding: 0;
+
+        @include media-breakpoint-up(sm) {
+            width: 50%;
+            padding: 0 20px;
+        }
+        @include media-breakpoint-up(md) {
+            width: 25%;
+            &:nth-of-type(2n+1) {
+                clear: none;
+            }
+            &:nth-of-type(4n+1) {
+                clear: both;
+            }
         }
     }
 }

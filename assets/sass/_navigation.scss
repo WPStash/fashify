@@ -38,7 +38,7 @@ a {
 		list-style: none;
 		margin: 0;
 		padding-left: 0;
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			margin: 0 -20px;
 		}
 		ul {
@@ -68,17 +68,17 @@ a {
 				&:last-child{
 					border-bottom: none;
 				}
-				@include media-breakpoint-down(md){
+				@include media-breakpoint-down(sm){
 					border: none;
 					padding: 0;
 				}
 			}
 
 			a {
-				width: 200px;
+				width: 230px;
 				padding: 10px 25px;
 				font-size: 15px;
-				@include media-breakpoint-down(md) {
+				@include media-breakpoint-down(sm) {
 					text-transform: none;
 					padding: 10px 0px;
 					width: 100%;
@@ -92,7 +92,7 @@ a {
 			a:hover,
 			a.focus {
 			}
-			@include media-breakpoint-down(md) {
+			@include media-breakpoint-down(sm) {
 				position: static;
 				border: none;
 				margin: 0;
@@ -113,7 +113,7 @@ a {
 		&:hover > a,
 		&.focus > a {
 		}
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			border-bottom: none;
 			border-top: 1px solid #e5e5e5;
 			width: 100%;
@@ -130,7 +130,7 @@ a {
 		text-transform: uppercase;
 		font-size: 18px;
 		padding: 18px 0;
-		@include media-breakpoint-down(md) {
+		@include media-breakpoint-down(sm) {
 			padding: 12px 0;
 		}
 	}

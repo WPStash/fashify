@@ -22,8 +22,6 @@ get_header(); ?>
 
 		<?php
 		global $wp_query;
-		$total_pages = $wp_query->max_num_pages;
-		$current_page = max(1, get_query_var('paged'));
 		$homepage_layout = get_theme_mod( 'fashify_homepage_layout', 'default' );
 		$count = 0;
 		if ( have_posts() ) :

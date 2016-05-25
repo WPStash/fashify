@@ -25,11 +25,13 @@
 
 		<div class="footer-widgets">
 			<div class="container">
-				<?php
-					if ( is_active_sidebar( 'footer' ) ) {
-						dynamic_sidebar( 'footer' );
-					}
-				?>
+				<div class="footer-inner">
+					<?php
+						if ( is_active_sidebar( 'footer' ) ) {
+							dynamic_sidebar( 'footer' );
+						}
+					?>
+				</div>				
 			</div>
 		</div>
 

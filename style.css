@@ -581,7 +581,7 @@ a:hover, a:active {
 	padding-left: 0;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	.main-navigation ul {
 		margin: 0 -20px;
 	}
@@ -619,7 +619,7 @@ a:hover, a:active {
 	border-bottom: none;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	.main-navigation ul ul li {
 		border: none;
 		padding: 0;
@@ -627,12 +627,12 @@ a:hover, a:active {
 }
 
 .main-navigation ul ul a {
-	width: 200px;
+	width: 230px;
 	padding: 10px 25px;
 	font-size: 15px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	.main-navigation ul ul a {
 		text-transform: none;
 		padding: 10px 0px;
@@ -640,7 +640,7 @@ a:hover, a:active {
 	}
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	.main-navigation ul ul {
 		position: static;
 		border: none;
@@ -661,7 +661,7 @@ a:hover, a:active {
 	margin-right: 30px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	.main-navigation li {
 		border-bottom: none;
 		border-top: 1px solid #e5e5e5;
@@ -683,7 +683,7 @@ a:hover, a:active {
 	padding: 18px 0;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 767px) {
 	.main-navigation a {
 		padding: 12px 0;
 	}
@@ -1043,6 +1043,7 @@ a:hover, a:active {
 /* Make sure select elements fit in widgets. */
 .widget {
 	margin-bottom: 40px;
+	width: 100%;
 }
 
 .widget ul {
@@ -1066,6 +1067,23 @@ a:hover, a:active {
 
 .widget:last-child {
 	margin-bottom: 20px;
+}
+
+@media (min-width: 499px) {
+	.widget {
+		width: 49%;
+		float: left;
+		padding-right: 20px;
+	}
+	.widget:nth-of-type(2n+1) {
+		clear: both;
+	}
+}
+
+@media (min-width: 768px) {
+	.widget {
+		width: 100%;
+	}
 }
 
 .widget-title {
@@ -1214,36 +1232,37 @@ a:hover, a:active {
 
 .content-area {
 	float: left;
-	width: 65%;
+	width: 100%;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 768px) {
 	.content-area {
-		width: 100%;
+		width: 65%;
 	}
 }
 
 .sidebar {
 	float: right;
-	width: 30%;
+	width: 100%;
+	margin-top: 40px;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 768px) {
 	.sidebar {
-		width: 100%;
-		margin-top: 40px;
+		width: 30%;
+		margin-top: 0px;
 	}
 }
 
 /* Home post layout */
 .post-grid {
-	width: 47.5%;
+	width: 100%;
 	border-bottom: 1px solid #e6e6e6;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 499px) {
 	.post-grid {
-		width: 100%;
+		width: 47.5%;
 	}
 }
 
@@ -1270,25 +1289,24 @@ a:hover, a:active {
 
 .post-list .featured-image {
 	float: left;
-	width: 280px;
+	width: 100%;
 	margin-right: 30px;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 499px) {
 	.post-list .featured-image {
-		float: none;
-		width: 100%;
+		width: 280px;
 	}
 }
 
 .post-list .ft-post-right {
-	margin-left: 310px;
-	overflow: hidden;
+	margin-left: 0;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 499px) {
 	.post-list .ft-post-right {
-		margin-left: 0;
+		margin-left: 310px;
+		overflow: hidden;
 	}
 }
 
@@ -1421,24 +1439,39 @@ a:hover, a:active {
 
 .footer-staff-picks .hentry {
 	border: none;
-	width: 25%;
+	width: 100%;
 	float: left;
 	margin-bottom: 20px;
 	padding: 0 10px;
 }
 
-@media (max-width: 991px) {
+@media (min-width: 499px) {
 	.footer-staff-picks .hentry {
 		width: 50%;
 	}
-	.footer-staff-picks .hentry:nth-of-type(odd) {
+	.footer-staff-picks .hentry:nth-of-type(2n+1) {
 		clear: both;
 	}
 }
 
-@media (max-width: 767px) {
+@media (min-width: 768px) {
 	.footer-staff-picks .hentry {
-		width: 100%;
+		width: 33.3333%;
+	}
+	.footer-staff-picks .hentry:nth-of-type(2n+1) {
+		clear: none;
+	}
+	.footer-staff-picks .hentry:nth-of-type(3n+1) {
+		clear: both;
+	}
+}
+
+@media (min-width: 992px) {
+	.footer-staff-picks .hentry {
+		width: 25%;
+	}
+	.footer-staff-picks .hentry:nth-of-type(3n+1) {
+		clear: none;
 	}
 }
 
@@ -1461,6 +1494,17 @@ a:hover, a:active {
 	margin: 0 -10px;
 }
 
+.footer-inner {
+	margin: 0;
+	overflow: hidden;
+}
+
+@media (min-width: 768px) {
+	.footer-inner {
+		margin: 0 -20px;
+	}
+}
+
 .footer-widgets {
 	border-bottom: 1px solid #e5e5e5;
 	border-top: 1px solid #e5e5e5;
@@ -1471,9 +1515,9 @@ a:hover, a:active {
 .footer-widgets .widget {
 	box-sizing: border-box;
 	float: left;
-	width: 25%;
+	width: 100%;
 	margin-bottom: 20px;
-	padding: 0 20px;
+	padding: 0;
 }
 
 .footer-widgets .widget li {
@@ -1482,10 +1526,22 @@ a:hover, a:active {
 	padding-bottom: 7px;
 }
 
-@media (max-width: 767px) {
+@media (min-width: 499px) {
 	.footer-widgets .widget {
-		width: 100%;
-		padding: 0;
+		width: 50%;
+		padding: 0 20px;
+	}
+}
+
+@media (min-width: 768px) {
+	.footer-widgets .widget {
+		width: 25%;
+	}
+	.footer-widgets .widget:nth-of-type(2n+1) {
+		clear: none;
+	}
+	.footer-widgets .widget:nth-of-type(4n+1) {
+		clear: both;
 	}
 }
 
@@ -1570,6 +1626,12 @@ h1.entry-title {
 .featured-image {
 	position: relative;
 	margin-bottom: 25px;
+}
+
+@media (max-width: 767px) {
+	.featured-image img {
+		width: 100%;
+	}
 }
 
 .entry-info {

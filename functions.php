@@ -140,9 +140,8 @@ function fashify_scripts() {
                 a{color: #{$secondary}; }
 				.entry-meta a,
 				.main-navigation a:hover,
-				.main-navigation .current_page_item > a,
 				.main-navigation .current-menu-item > a,
-				.main-navigation .current_page_ancestor > a,
+				.main-navigation .current-menu-ancestor > a,
 				.widget_tag_cloud a:hover,
 				.social-links ul a:hover::before,
                 a:hover

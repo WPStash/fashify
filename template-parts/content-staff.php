@@ -21,9 +21,7 @@
             $number   = ( 0 != $number ) ? $number : 4;
             $args = array( 'posts_per_page' => $number , 'cat' => $category , 'ignore_sticky_posts' => true );
             $staff_picks = new WP_Query( $args );
-            ?>
 
-		    <?php
             if ( $staff_picks->have_posts() ) :
 			    while($staff_picks->have_posts()): $staff_picks->the_post(); global $post;
                     if ( $i % 4 == 1 ) echo '<div class="staff-row clear">';

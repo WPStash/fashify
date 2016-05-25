@@ -5,7 +5,7 @@
 
 .widget {
 	margin-bottom: 40px;
-
+	width: 100%;
 	ul {
 		list-style: none;
 		margin: 0;
@@ -23,6 +23,19 @@
 	}
 	&:last-child {
 		margin-bottom: 20px;
+	}
+
+	@include media-breakpoint-up(sm) {
+		width: 49%;
+		float: left;
+		padding-right: 20px;
+		&:nth-of-type(2n+1) {
+			clear: both;
+		}
+	}
+
+	@include media-breakpoint-up(md) {
+		width: 100%;
 	}
 }
 

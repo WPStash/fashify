@@ -47,16 +47,17 @@ function fashify_customize_register( $wp_customize ) {
 
 				$wp_customize->add_control( 'fashify_homepage_layout',
 					array(
-						'label' 		=> esc_html__( 'Homepage Layout', 'fashify' ),
-						'type'			=> 'select',
-						'section' 	=> 'fashify_general',
+						'label' 		=> esc_html__( 'Front page layout', 'fashify' ),
+						'type'			=> 'radio',
+						'description'   => 'Only apply when front page display is latest posts',
+						'section' 	=> 'static_front_page',
 						'choices'   => array(
 							'default' => esc_html__( 'Default', 'fashify' ),
-							'home1'   => esc_html__( 'Homepage 1', 'fashify' ),
-							'home2'   => esc_html__( 'Homepage 2', 'fashify' ),
-							'home3'   => esc_html__( 'Homepage 3', 'fashify' ),
-							'home4'   => esc_html__( 'Homepage 4', 'fashify' ),
-							'home5'   => esc_html__( 'Homepage 5', 'fashify' )
+							'home1'   => esc_html__( 'Layout 1', 'fashify' ),
+							'home2'   => esc_html__( 'Layout 2', 'fashify' ),
+							'home3'   => esc_html__( 'Layout 3', 'fashify' ),
+							'home4'   => esc_html__( 'Layout 4', 'fashify' ),
+							'home5'   => esc_html__( 'Layout 5', 'fashify' )
 						)
 					)
 				);
@@ -129,7 +130,7 @@ function fashify_customize_register( $wp_customize ) {
 				$wp_customize->add_control( 'fashify_archive_layout',
 					array(
 						'label' 		=> esc_html__( 'Archive/Search layout:', 'fashify' ),
-						'type'			=> 'select',
+						'type'			=> 'radio',
 						'section' 		=> 'staff_picks',
 						'choices'   	=> array (
 							'default'	=> esc_html__( 'Default', 'fashify' ),
