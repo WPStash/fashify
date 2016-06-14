@@ -65,7 +65,7 @@ get_header(); ?>
 				'prev_next' => true,
 				'prev_text' => '',
 				'next_text' => '',
-				'before_page_number' => '<span class="screen-reader-text">' . __('Page', 'fashify') . ' </span>',
+				'before_page_number' => '<span class="screen-reader-text">' . esc_html__('Page', 'fashify') . ' </span>',
 			));
 			echo '</div>';
 		}

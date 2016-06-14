@@ -157,7 +157,7 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  		case 'trackback' :
  	?>
  	<li class="pingback">
- 		<p><?php _e( 'Pingback:', 'fashify' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'fashify' ), ' ' ); ?></p>
+ 		<p><?php _e( 'Pingback:', 'fashify' ); ?> <?php comment_author_link(); ?><?php edit_comment_link( esc_html__( 'Edit', 'fashify' ), ' ' ); ?></p>
  	<?php
  			break;
  		default :
@@ -178,7 +178,7 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
  					<?php
  						/* translators: 1: date, 2: time */
- 						printf( __( '%1$s at %2$s', 'fashify' ), get_comment_date(), get_comment_time() ); ?>
+ 						printf( esc_html__( '%1$s at %2$s', 'fashify' ), get_comment_date(), get_comment_time() ); ?>
  					</time></a>
  				</div><!-- .comment-meta .commentmetadata -->
  				<div class="comment-content"><?php comment_text(); ?></div>
@@ -223,3 +223,22 @@ function fashify_the_custom_logo() {
 	}
 }
 endif;
+
+
+if ( ! function_exists( 'fashify_footer_site_info' ) ) {
+    /**
+     * Add Copyright and Credit text to footer
+     * @since 1.1.3
+     */
+    function fashify_footer_site_info()
+    {
+        ?>
+		<div class="site-copyright">
+	        <?php printf(esc_html__('Copyright %1$s %2$s %3$s', 'fashify'), '&copy;', esc_attr(date('Y')), esc_attr(get_bloginfo())); ?>
+	        <span class="sep"> &ndash; </span>
+	        <?php printf(esc_html__('%1$s theme by %2$s', 'fashify'), 'Fashify', '<a href="' . esc_url('https://wpstash.com', 'fashify') . '">WPStash</a>' ); ?>
+		</div>
+		<?php
+    }
+}
+add_action( 'fashify_footer_site_info', 'fashify_footer_site_info' );

@@ -83,8 +83,7 @@ function fashify_customize_register( $wp_customize ) {
 					array(
 						'label' 		=> esc_html__( 'Turn on/off the staff picks', 'fashify' ),
 						'type'			=> 'checkbox',
-						'section' 		=> 'staff_picks',
-						//'description'	=> __( 'Turn on/off the staff picks.', 'fashify' )
+						'section' 		=> 'staff_picks'
 					)
 				);
 
@@ -148,7 +147,7 @@ function fashify_customize_register( $wp_customize ) {
 				) );
 
 				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_color', array(
-					'label'        => __( 'Primary Color', 'fashify' ),
+					'label'        => esc_html__( 'Primary Color', 'fashify' ),
 					'section'    => 'colors',
 					'settings'   => 'primary_color',
 				) ) );
@@ -159,7 +158,7 @@ function fashify_customize_register( $wp_customize ) {
 					'sanitize_callback'	=> 'fashify_sanitize_hex_color',
 				) );
 				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
-					'label'        => __( 'Secondary Color', 'fashify' ),
+					'label'        => esc_html__( 'Secondary Color', 'fashify' ),
 					'section'    => 'colors',
 					'settings'   => 'secondary_color',
 				) ) );

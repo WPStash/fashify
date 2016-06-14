@@ -56,14 +56,14 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif;
-		
+
 		if (  $wp_query->max_num_pages > 1 ) {
 			echo '<div class="post-pagination">';
 			the_posts_pagination(array(
 				'prev_next' => true,
 				'prev_text' => '',
 				'next_text' => '',
-				'before_page_number' => '<span class="screen-reader-text">' . __('Page', 'fashify') . ' </span>',
+				'before_page_number' => '<span class="screen-reader-text">' . esc_html__('Page', 'fashify') . ' </span>',
 			));
 			echo '</div>';
 		}

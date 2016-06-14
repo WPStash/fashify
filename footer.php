@@ -31,7 +31,7 @@
 							dynamic_sidebar( 'footer' );
 						}
 					?>
-				</div>				
+				</div>
 			</div>
 		</div>
 
@@ -40,11 +40,14 @@
 
 				<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ) ?>
 
-				<div class="site-copyright">
-					<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'fashify' ) ); ?>"><?php printf( esc_html__( 'Powered by %s', 'fashify' ), 'WordPress' ); ?></a>
-					<span class="sep"> . </span>
-					<?php printf( esc_html__( 'Theme by %2$s.', 'fashify' ), 'fashify', '<a href="https://wpstash.com" rel="designer">WPStash</a>' ); ?>
-				</div>
+				<?php
+			   /**
+				* hooked onepress_footer_site_info
+				* @see onepress_footer_site_info
+				*/
+			   do_action('fashify_footer_site_info');
+			   ?>
+
 			</div>
 		</div><!-- .site-info -->
 
