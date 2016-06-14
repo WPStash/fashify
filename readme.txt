@@ -11,6 +11,7 @@ License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Fashify Theme, Copyright 2016 FameThemes
+Fashify is distributed under the terms of the GNU GPL
 
 == Description ==
 
