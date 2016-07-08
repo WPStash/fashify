@@ -52,7 +52,9 @@
 			</div><!-- .site-branding -->
 
 			<div class="social-menu">
-				<?php wp_nav_menu( array( 'theme_location' => 'social', 'menu_id' => 'menu-social', 'container_id' => 'menu-social', 'container_class' => 'social-links', 'link_before' => '<span class="screen-reader-text">',  'link_after'   => '</span>'  ) ); ?>
+				<?php if ( has_nav_menu( 'social' ) ) {
+					wp_nav_menu( array( 'theme_location' => 'social', 'menu_id' => 'menu-social', 'container_id' => 'menu-social', 'container_class' => 'social-links', 'link_before' => '<span class="screen-reader-text">',  'link_after'   => '</span>'  ) ); 
+				} ?>
 			</div>
 
 		</div>

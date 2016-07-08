@@ -19,7 +19,7 @@
             $category = get_theme_mod( 'fashify_staff_picks_cat' );
             $number   = intval( get_theme_mod( 'number_staff_picks', 4 ) );
             $number   = ( 0 != $number ) ? $number : 4;
-            $args = array( 'posts_per_page' => $number , 'cat' => $category , 'ignore_sticky_posts' => true );
+            $args = array( 'posts_per_page' => $number , 'cat' => $category , 'ignore_sticky_posts' => true, 'meta_query' => array( array( 'key' => '_thumbnail_id' ) ) );
             $staff_picks = new WP_Query( $args );
 
             if ( $staff_picks->have_posts() ) :
