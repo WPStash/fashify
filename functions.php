@@ -145,6 +145,9 @@ add_action( 'wp_enqueue_scripts', 'fashify_scripts' );
  */
 require get_template_directory() . '/inc/template-tags.php';
 
+/**
+ * Custom header
+ */
 require get_template_directory() . '/inc/custom-header.php';
 
 /**
@@ -156,3 +159,8 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Widgets
+ */
+require get_template_directory() . '/inc/widgets.php';
