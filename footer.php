@@ -23,30 +23,28 @@
 
 		?>
 
+		<?php if ( is_active_sidebar( 'footer' ) ) { ?>
 		<div class="footer-widgets">
 			<div class="container">
 				<div class="footer-inner">
 					<?php
-						if ( is_active_sidebar( 'footer' ) ) {
 							dynamic_sidebar( 'footer' );
-						}
 					?>
 				</div>
 			</div>
 		</div>
+		<?php } ?>
 
 		<div class="site-info">
 			<div class="container">
 
-				<?php if ( has_nav_menu( 'footer' ) ) wp_nav_menu( array( 'theme_location' => 'footer' ) ) ?>
+				<div class="site-copyright">
+					<?php printf( esc_html__( 'Copyright &copy; %1$s %2$s. All Rights Reserved.', 'fashify' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+				</div>
 
-				<?php
-			   /**
-				* hooked onepress_footer_site_info
-				* @see onepress_footer_site_info
-				*/
-			   do_action('fashify_footer_site_info');
-			   ?>
+
+				<?php do_action('fashify_theme_info'); ?>
+
 
 			</div>
 		</div><!-- .site-info -->

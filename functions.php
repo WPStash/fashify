@@ -43,6 +43,7 @@ function fashify_setup() {
 		'height'      => 54,
 		'width'       => 192,
 		'flex-height' => true,
+		'flex-width'  => true,
 	) );
 
 	/*
@@ -58,7 +59,6 @@ function fashify_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => esc_html__( 'Primary', 'fashify' ),
-		'footer'  => esc_html__( 'Footer', 'fashify' ),
 		'social'  => esc_html__( 'Social Links', 'fashify' ),
 	) );
 
@@ -74,11 +74,7 @@ function fashify_setup() {
 		'caption',
 	) );
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'fashify_custom_background_args', array(
-		'default-color' => 'ffffff',
-		'default-image' => '',
-	) ) );
+
 }
 endif;
 add_action( 'after_setup_theme', 'fashify_setup' );
@@ -130,44 +126,8 @@ add_action( 'widgets_init', 'fashify_widgets_init' );
 function fashify_scripts() {
 
 	// Add Font Awesome, used in the main stylesheet.
-	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/font-awesome/font-awesome.min.css', array(), '4.5' );
-
+	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.5' );
 	wp_enqueue_style( 'fashify-style', get_stylesheet_uri() );
-	// Add extra styling to patus-style
-   		$primary   = get_theme_mod( 'primary_color', '#f75357' );
-        $secondary = get_theme_mod( 'secondary_color', '#444' );
-        $custom_css = "
-                a{color: #{$secondary}; }
-				.entry-meta a,
-				.main-navigation a:hover,
-				.main-navigation .current-menu-item > a,
-				.main-navigation .current-menu-ancestor > a,
-				.widget_tag_cloud a:hover,
-				.social-links ul a:hover::before,
-                a:hover
-				 {
-					 color : {$primary};
-				 }
-				button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"]{
-                    background: {$primary};
-					border-color : {$primary};
-                }
-				.widget_tag_cloud a:hover { border-color : {$primary};}
-                .main-navigation a,
-				h2.entry-title a,
-				h1.entry-title,
-				.widget-title,
-				.footer-staff-picks h3
-				{
-                	color: {$secondary};
-                }
-                button:hover, input[type=\"button\"]:hover,
-				input[type=\"reset\"]:hover,
-				input[type=\"submit\"]:hover {
-                        background: {$secondary};
-						border-color: {$secondary};
-                }";
-	wp_add_inline_style( 'fashify-style', $custom_css );
 
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'fashify-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );

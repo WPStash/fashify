@@ -328,17 +328,21 @@
 }
 
 .site-info {
-    color: #aaa;
-    padding: 25px 0 35px;
+    padding: 25px 0;
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
+    line-height: 1.75;
     text-align: center;
     .site-copyright {
-        font-size: 12px;
-        line-height: 1.75;
-        a {
-            color: #aaa;
-            text-decoration: none;
+        float: left;
+        @include media-breakpoint-down(md) {
+            float: none;
+        }
+    }
+    .theme-info-text {
+        float: right;
+        @include media-breakpoint-down(md) {
+            float: none;
         }
     }
 }

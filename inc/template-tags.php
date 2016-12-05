@@ -233,12 +233,55 @@ if ( ! function_exists( 'fashify_footer_site_info' ) ) {
     function fashify_footer_site_info()
     {
         ?>
-		<div class="site-copyright">
-	        <?php printf(esc_html__('Copyright %1$s %2$s %3$s', 'fashify'), '&copy;', esc_attr(date('Y')), esc_attr(get_bloginfo())); ?>
-	        <span class="sep"> &ndash; </span>
-	        <?php printf(esc_html__('%1$s theme by %2$s', 'fashify'), 'Fashify', '<a href="' . esc_url('https://wpstash.com', 'fashify') . '">WPStash</a>' ); ?>
+		<div class="theme-info-text">
+        	<?php printf( esc_html__( 'Fashify Theme by %1$s', 'fashify' ), '<a href="https://wpstash.com/" rel="designer">WPStash</a>' ); ?>
 		</div>
 		<?php
     }
 }
-add_action( 'fashify_footer_site_info', 'fashify_footer_site_info' );
+add_action( 'fashify_theme_info', 'fashify_footer_site_info' );
+
+if ( ! function_exists( 'fashify_cusotm_inline_style' ) ) {
+	function fashify_cusotm_inline_style(){
+		// Add extra styling to patus-style
+   		$primary   = esc_attr( get_theme_mod( 'primary_color', '#f75357' ) );
+        $secondary = esc_attr( get_theme_mod( 'secondary_color', '#444' ) );
+        $custom_css = "
+				.entry-meta a,
+				.main-navigation a:hover,
+				.main-navigation .current-menu-item > a,
+				.main-navigation .current-menu-ancestor > a,
+				.widget_tag_cloud a:hover,
+                a:hover
+				 {
+					 color : {$primary};
+				 }
+				button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"]{
+                    background: {$primary};
+					border-color : {$primary};
+                }
+				.widget_tag_cloud a:hover { border-color : {$primary};}
+                .main-navigation a,
+				h1.entry-title,
+				.widget-title,
+				.footer-staff-picks h3,
+				.social-links ul a:hover::before,
+				.navigation .current
+				{
+                	color: {$secondary};
+                }
+                button:hover, input[type=\"button\"]:hover,
+				input[type=\"reset\"]:hover,
+				input[type=\"submit\"]:hover {
+                        background: {$secondary};
+						border-color: {$secondary};
+                }";
+
+		if ( get_header_image() ) :
+			$custom_css .= '.site-header {  background-image: url('. esc_url( get_header_image() ) .') }';
+		endif;
+
+		wp_add_inline_style( 'fashify-style', $custom_css );
+	}
+}
+add_action( 'wp_enqueue_scripts', 'fashify_cusotm_inline_style', 100 );
