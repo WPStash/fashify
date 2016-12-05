@@ -16,6 +16,8 @@
     padding: 45px 0;
     .site-title {
         font-size: 35px;
+        font-style: normal;
+        line-height: 30px;
         text-decoration: none;
         margin: 5px 0;
         a {
@@ -79,6 +81,16 @@
         margin-top: 0px;
     }
 }
+
+.left-sidebar  {
+    .content-area {
+        float: right;
+    }
+    .sidebar {
+        float: left;
+    }
+}
+
 
 /* Home post layout */
 .post-grid {
@@ -295,7 +307,6 @@
     }
 }
 .footer-widgets {
-    border-bottom: 1px solid #e5e5e5;
     border-top: 1px solid #e5e5e5;
     margin: 0;
     padding: 45px 0 20px;
@@ -333,6 +344,7 @@
     font-size: 13px;
     line-height: 1.75;
     text-align: center;
+    border-top: 1px solid #e5e5e5;
     .site-copyright {
         float: left;
         @include media-breakpoint-down(md) {

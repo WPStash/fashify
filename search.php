@@ -7,9 +7,11 @@
  * @package Fashify
  */
 
-get_header(); ?>
+get_header();
+$layout = get_theme_mod( 'site_layout', 'right-sidebar' );
+?>
 
-<div class="container">
+<div class="container <?php echo esc_attr( $layout ); ?>">
 	<section id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 

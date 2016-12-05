@@ -1344,6 +1344,8 @@ a:hover, a:active {
 
 .site-header .site-title {
 	font-size: 35px;
+	font-style: normal;
+	line-height: 30px;
 	text-decoration: none;
 	margin: 5px 0;
 }
@@ -1421,6 +1423,14 @@ a:hover, a:active {
 		width: 30%;
 		margin-top: 0px;
 	}
+}
+
+.left-sidebar .content-area {
+	float: right;
+}
+
+.left-sidebar .sidebar {
+	float: left;
 }
 
 /* Home post layout */
@@ -1675,7 +1685,6 @@ a:hover, a:active {
 }
 
 .footer-widgets {
-	border-bottom: 1px solid #e5e5e5;
 	border-top: 1px solid #e5e5e5;
 	margin: 0;
 	padding: 45px 0 20px;
@@ -1720,6 +1729,7 @@ a:hover, a:active {
 	font-size: 13px;
 	line-height: 1.75;
 	text-align: center;
+	border-top: 1px solid #e5e5e5;
 }
 
 .site-info .site-copyright {

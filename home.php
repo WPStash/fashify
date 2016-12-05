@@ -12,11 +12,13 @@
  * @package Fashify
  */
 
-get_header(); ?>
+get_header();
 
-<div class="container">
+$layout = get_theme_mod( 'site_layout', 'right-sidebar' );
+?>
 
-
+<div class="container <?php echo esc_attr( $layout ); ?>">
+	
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 

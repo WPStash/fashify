@@ -18,104 +18,99 @@ function fashify_customize_register( $wp_customize ) {
 
 
 		/*------------------------------------------------------------------------*/
-		/*  Section: Theme Options
+		/*  Section: Fashify Options
 		/*------------------------------------------------------------------------*/
 
-		$wp_customize->add_panel( 'fashify_theme_options_panel' ,
+		/* staff picks	*/
+		$wp_customize->add_section( 'staff_pick' ,
+			array(
+				'priority'    => 35,
+				'title'       => esc_html__( 'Staff Picks', 'fashify' ),
+				'description' => '',
+			)
+		);
+
+			$wp_customize->add_setting( 'fashify_staff_picks',
+				array(
+					'sanitize_callback'	=> 'fashify_sanitize_checkbox',
+					'default'           => true,
+				)
+			);
+
+			$wp_customize->add_control( 'fashify_staff_picks',
+				array(
+					'label' 		=> esc_html__( 'Show/Hide the staff pick', 'fashify' ),
+					'type'			=> 'checkbox',
+					'section' 		=> 'staff_pick'
+				)
+			);
+
+			$wp_customize->add_setting( 'fashify_staff_picks_cat',
+				array(
+					'sanitize_callback'	=> 'fashify_sanitize_select',
+					'default'           => '',
+				)
+			);
+
+			$wp_customize->add_control( new Fashify_Category_Dropdown_Custom_Control(
+				$wp_customize, 'fashify_staff_picks_cat',
+					array(
+			            'label'   => esc_html__( 'Staff Category:', 'fashify' ),
+			            'section' => 'staff_pick'
+			        )
+				)
+			);
+
+
+			$wp_customize->add_setting( 'number_staff_picks',
+				array(
+					'sanitize_callback'		=> 'fashify_sanitize_number_absint',
+					'default'           	=> '4',
+				)
+			);
+			$wp_customize->add_control( 'number_staff_picks',
+				array(
+					'label' 		=> esc_html__( 'Number:', 'fashify' ),
+					'type'			=> 'text',
+					'section' 		=> 'staff_pick',
+					'description'	=> esc_html__( 'Enter number post display on Staff section.', 'fashify' )
+				)
+			);
+
+		/* theme options */
+		$wp_customize->add_panel( 'theme_options' ,
 				array(
 					'priority'        => 30,
 					'title'           => esc_html__( 'Theme Options', 'fashify' ),
 					'description'     => ''
 				)
 			);
-			// section
-			$wp_customize->add_section( 'fashify_general' ,
+
+			// general
+			$wp_customize->add_section( 'global' ,
 				array(
 					'priority'    => 3,
-					'title'       => esc_html__( 'General', 'fashify' ),
+					'title'       => esc_html__( 'Global', 'fashify' ),
 					'description' => '',
-					'panel'       => 'fashify_theme_options_panel',
+					'panel'       => 'theme_options',
 				)
 			);
-				// settings
-				$wp_customize->add_setting( 'fashify_homepage_layout',
+				// site layout
+				$wp_customize->add_setting( 'site_layout',
 					array(
-						'default'           => 'default',
 						'sanitize_callback'	=> 'fashify_sanitize_select',
+						'default'           => 'right-sidebar',
 					)
 				);
-
-				$wp_customize->add_control( 'fashify_homepage_layout',
+				$wp_customize->add_control( 'site_layout',
 					array(
-						'label' 		=> esc_html__( 'Front page layout', 'fashify' ),
-						'type'			=> 'radio',
-						'description'   => 'Only apply when front page display is latest posts',
-						'section' 	=> 'static_front_page',
-						'choices'   => array(
-							'default' => esc_html__( 'Default', 'fashify' ),
-							'home1'   => esc_html__( 'Layout 1', 'fashify' ),
-							'home2'   => esc_html__( 'Layout 2', 'fashify' ),
-							'home3'   => esc_html__( 'Layout 3', 'fashify' ),
-							'home4'   => esc_html__( 'Layout 4', 'fashify' ),
-							'home5'   => esc_html__( 'Layout 5', 'fashify' )
+						'label' 		=> esc_html__( 'Site Layout', 'fashify' ),
+						'type'			=> 'select',
+						'section' 		=> 'global',
+						'choices'   	=> array (
+							'left-sidebar'	    => esc_html__( 'Left Sidebar', 'fashify' ),
+							'right-sidebar'		=> esc_html__( 'Right Sidebar', 'fashify' ),
 						)
-					)
-				);
-
-			// staff picks
-			$wp_customize->add_section( 'staff_picks' ,
-				array(
-					'priority'    => 3,
-					'title'       => esc_html__( 'Staff Picks', 'fashify' ),
-					'description' => '',
-					'panel'       => 'fashify_theme_options_panel',
-				)
-			);
-
-				$wp_customize->add_setting( 'fashify_staff_picks',
-					array(
-						'sanitize_callback'	=> 'fashify_sanitize_checkbox',
-						'default'           => true,
-					)
-				);
-
-				$wp_customize->add_control( 'fashify_staff_picks',
-					array(
-						'label' 		=> esc_html__( 'Turn on/off the staff picks', 'fashify' ),
-						'type'			=> 'checkbox',
-						'section' 		=> 'staff_picks'
-					)
-				);
-
-				$wp_customize->add_setting( 'fashify_staff_picks_cat',
-					array(
-						'sanitize_callback'	=> 'fashify_sanitize_select',
-						'default'           => '',
-					)
-				);
-
-				$wp_customize->add_control( new Fashify_Category_Dropdown_Custom_Control(
-					$wp_customize, 'fashify_staff_picks_cat',
-						array(
-				            'label'   => esc_html__( 'Staff Category:', 'fashify' ),
-				            'section' => 'staff_picks'
-				        )
-					)
-				);
-
-
-				$wp_customize->add_setting( 'number_staff_picks',
-					array(
-						'sanitize_callback'		=> 'fashify_sanitize_number_absint',
-						'default'           	=> '4',
-					)
-				);
-				$wp_customize->add_control( 'number_staff_picks',
-					array(
-						'label' 		=> esc_html__( 'Number:', 'fashify' ),
-						'type'			=> 'text',
-						'section' 		=> 'staff_picks',
-						'description'	=> esc_html__( 'Enter number post display on Staff section.', 'fashify' )
 					)
 				);
 
@@ -128,9 +123,9 @@ function fashify_customize_register( $wp_customize ) {
 				);
 				$wp_customize->add_control( 'fashify_archive_layout',
 					array(
-						'label' 		=> esc_html__( 'Archive/Search layout:', 'fashify' ),
+						'label' 		=> esc_html__( 'Archive/Search Layout:', 'fashify' ),
 						'type'			=> 'radio',
-						'section' 		=> 'staff_picks',
+						'section' 		=> 'global',
 						'choices'   	=> array (
 							'default'	=> esc_html__( 'Default', 'fashify' ),
 							'grid'	    => esc_html__( 'Grid', 'fashify' ),
@@ -138,6 +133,46 @@ function fashify_customize_register( $wp_customize ) {
 						)
 					)
 				);
+
+
+
+
+
+			// frontpage layout
+			$wp_customize->add_section( 'home_layout' ,
+				array(
+					'priority'    => 3,
+					'title'       => esc_html__( 'Front Page', 'fashify' ),
+					'description' => '',
+					'panel'       => 'theme_options',
+				)
+			);
+				// settings
+				$wp_customize->add_setting( 'fashify_homepage_layout',
+					array(
+						'default'           => 'default',
+						'sanitize_callback'	=> 'fashify_sanitize_select',
+					)
+				);
+
+				$wp_customize->add_control( 'fashify_homepage_layout',
+					array(
+						'label' 		=> esc_html__( 'Frontpage layout', 'fashify' ),
+						'type'			=> 'radio',
+						'description'   => 'Only apply when front page display is latest posts',
+						'section' 	=> 'home_layout',
+						'choices'   => array(
+							'default' => esc_html__( 'Default', 'fashify' ),
+							'home1'   => esc_html__( 'Layout 1', 'fashify' ),
+							'home2'   => esc_html__( 'Layout 2', 'fashify' ),
+							'home3'   => esc_html__( 'Layout 3', 'fashify' ),
+							'home4'   => esc_html__( 'Layout 4', 'fashify' ),
+							'home5'   => esc_html__( 'Layout 5', 'fashify' )
+						)
+					)
+				);
+
+
 
 
 				// Primary color setting
