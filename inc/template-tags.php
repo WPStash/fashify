@@ -278,7 +278,7 @@ if ( ! function_exists( 'fashify_cusotm_inline_style' ) ) {
                 }";
 
 		if ( get_header_image() ) :
-			$custom_css .= '.site-header {  background-image: url('. esc_url( get_header_image() ) .') }';
+			$custom_css .= '.site-header {  background-image: url('. esc_url( get_header_image() ) .'); background-repeat: no-repeat; }';
 		endif;
 
 		wp_add_inline_style( 'fashify-style', $custom_css );
