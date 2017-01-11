@@ -252,7 +252,8 @@ if ( ! function_exists( 'fashify_cusotm_inline_style' ) ) {
 				.main-navigation .current-menu-item > a,
 				.main-navigation .current-menu-ancestor > a,
 				.widget_tag_cloud a:hover,
-                a:hover
+                a:hover,
+				.social-links ul a:hover::before
 				 {
 					 color : {$primary};
 				 }
@@ -265,7 +266,6 @@ if ( ! function_exists( 'fashify_cusotm_inline_style' ) ) {
 				h1.entry-title,
 				.widget-title,
 				.footer-staff-picks h3,
-				.social-links ul a:hover::before,
 				.navigation .current
 				{
                 	color: {$secondary};

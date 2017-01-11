@@ -91,6 +91,32 @@ function fashify_content_width() {
 }
 add_action( 'after_setup_theme', 'fashify_content_width', 0 );
 
+
+if ( ! function_exists( 'fashify_fonts_url' ) ) :
+/**
+ * @return string Google fonts URL for the theme.
+ */
+function fashify_fonts_url() {
+	$fonts_url = '';
+	/**
+	 * Translators: If there are characters in your language that are not
+	 * supported by Libre Frankin, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$libre_franklin = _x( 'on', 'libre_franklin font: on or off', 'twentyseventeen' );
+	if ( 'off' !== $libre_franklin ) {
+		$font_families = array();
+		$font_families[] = 'Libre Franklin:300,300i,400,400i,600,600i,800,800i';
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
+	}
+	return esc_url_raw( $fonts_url );
+}
+endif;
+
 /**
  * Register widget area.
  *
@@ -124,6 +150,8 @@ add_action( 'widgets_init', 'fashify_widgets_init' );
  * Enqueue scripts and styles.
  */
 function fashify_scripts() {
+
+	wp_enqueue_style( 'fashify-fonts', fashify_fonts_url(), array(), null );
 
 	// Add Font Awesome, used in the main stylesheet.
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.5' );
