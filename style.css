@@ -467,8 +467,8 @@ input[type="submit"] {
 	background: #f75357;
 	box-shadow: none;
 	color: #fff;
-	font-size: 13.6px;
-	font-size: 0.85rem;
+	font-size: 10.4px;
+	font-size: 0.65rem;
 	padding: 13px 20px;
 	cursor: pointer;
 	text-shadow: none;
@@ -526,12 +526,12 @@ input[type="text"],
 input[type="email"],
 input[type="url"],
 input[type="password"],
-input[type="search"] {
+input[type="search"],
+textarea {
 	padding: 12px;
 }
 
 textarea {
-	padding-left: 3px;
 	width: 100%;
 }
 
@@ -1013,6 +1013,10 @@ a:hover, a:active {
 	padding: 0;
 }
 
+.widget li {
+	overflow: hidden;
+}
+
 .widget select {
 	max-width: 100%;
 }
@@ -1113,7 +1117,7 @@ a:hover, a:active {
 }
 
 .fashify-posts-widget .widget-posts li {
-	padding: 10px 0px 13px;
+	padding: 10px 0px;
 	clear: both;
 }
 
@@ -1578,7 +1582,8 @@ a:hover, a:active {
 
 .single-post .navigation .nav-links h5 {
 	margin: 0;
-	font-weight: 400;
+	font-weight: 600;
+	font-size: 14px;
 }
 
 .single-post .navigation .nav-links h5 a {
@@ -2027,7 +2032,7 @@ h2.entry-title a:hover {
 
 #respond h3#reply-title {
 	border-bottom: 1px solid #e5e5e5;
-	font-size: 22px;
+	font-size: 18px;
 	margin-bottom: 40px;
 	padding-bottom: 10px;
 	text-transform: uppercase;

@@ -45,19 +45,16 @@ function fashify_customize_register( $wp_customize ) {
 				)
 			);
 
-			$wp_customize->add_setting( 'fashify_staff_picks_cat',
-				array(
-					'sanitize_callback'	=> 'fashify_sanitize_select',
-					'default'           => '',
-				)
-			);
+			$wp_customize->add_setting( 'fashify_staff_picks_cat' );
 
 			$wp_customize->add_control( new Fashify_Category_Dropdown_Custom_Control(
-				$wp_customize, 'fashify_staff_picks_cat',
-					array(
-			            'label'   => esc_html__( 'Staff Category:', 'fashify' ),
-			            'section' => 'staff_pick'
-			        )
+				$wp_customize,
+				'fashify_staff_picks_cat',
+				array(
+		            'label'   => esc_html__( 'Staff Category:', 'fashify' ),
+		            'section' => 'staff_pick',
+					'settings' => 'fashify_staff_picks_cat'
+		        	)
 				)
 			);
 

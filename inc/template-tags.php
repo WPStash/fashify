@@ -30,7 +30,7 @@ function fashify_posted_on_default() {
 	);
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'fashify' ),
+		esc_html_x( 'Posted by %s', 'post author', 'fashify' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -67,7 +67,7 @@ function fashify_posted_on() {
 	);
 
 	$byline = sprintf(
-		esc_html_x( 'by %s', 'post author', 'fashify' ),
+		esc_html_x( 'Posted by %s', 'post author', 'fashify' ),
 		'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 	);
 
@@ -278,7 +278,7 @@ if ( ! function_exists( 'fashify_cusotm_inline_style' ) ) {
                 }";
 
 		if ( get_header_image() ) :
-			$custom_css .= '.site-header {  background-image: url('. esc_url( get_header_image() ) .'); background-repeat: no-repeat; }';
+			$custom_css .= '.site-header {  background-image: url('. esc_url( get_header_image() ) .'); background-repeat: no-repeat; background-size: 100%; }';
 		endif;
 
 		wp_add_inline_style( 'fashify-style', $custom_css );

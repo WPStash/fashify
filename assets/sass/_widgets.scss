@@ -11,6 +11,9 @@
 		margin: 0;
 		padding: 0;
 	}
+	li {
+		overflow: hidden;
+	}
 	select {
 		max-width: 100%;
 	}
@@ -96,7 +99,7 @@
 }
 
 .fashify-posts-widget .widget-posts li {
-	padding: 10px 0px 13px;
+	padding: 10px 0px;
 	clear: both;
 	&.has-thumb {
 		.p-info {
