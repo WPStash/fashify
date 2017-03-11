@@ -151,7 +151,7 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  * @return void
  */
  function fashify_comments( $comment, $args, $depth ) {
- 	
+
  	switch ( $comment->comment_type ) :
  		case 'pingback' :
  		case 'trackback' :
@@ -166,7 +166,7 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  		<article id="comment-<?php comment_ID(); ?>" class="comment">
  			<div class="comment-author vcard">
  				<?php echo get_avatar( $comment, 60 ); ?>
- 				<?php //printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+
  			</div><!-- .comment-author .vcard -->
 
  			<div class="comment-wrapper">
@@ -175,6 +175,8 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  				<?php endif; ?>
 
  				<div class="comment-meta comment-metadata">
+					<?php printf( '<cite class="fn">%s</cite>', get_comment_author_link() ); ?>
+					<span class="says"><?php esc_html_e( 'says:', 'fashify' ) ?></span><br>
  					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>"><time pubdate datetime="<?php comment_time( 'c' ); ?>">
  					<?php
  						/* translators: 1: date, 2: time */

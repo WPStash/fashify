@@ -33,11 +33,11 @@
 					'clip': 'auto',
 					'position': 'relative'
 				} );
-				$( '.site-title a, .site-description' ).css( {
+				$( '.site-title a, .site-description, .social-links ul a' ).css( {
 					'color': to
 				} );
 			}
 		} );
 	} );
-	
+
 } )( jQuery );

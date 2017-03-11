@@ -1783,7 +1783,7 @@ h1.entry-title {
 	margin-top: 0;
 	font-size: 26px;
 	font-weight: 600;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	line-height: 1.2;
 }
 
@@ -1917,8 +1917,8 @@ h2.entry-title a:hover {
 /* Archie */
 .archive .page-header, .search .page-header {
 	border-bottom: 1px solid #e5e5e5;
-	margin-bottom: 40px;
-	padding-bottom: 15px;
+	margin-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 .archive .post-grid:nth-of-type(2n+1), .search .post-grid:nth-of-type(2n+1) {
@@ -1989,6 +1989,10 @@ h2.entry-title a:hover {
 
 .comments-area .comment-list li .comment-wrapper .comment-meta a {
 	text-decoration: none;
+}
+
+.comments-area .comment-list li .comment-wrapper .comment-meta .fn {
+	font-weight: bold;
 }
 
 .comments-area .comment-list li .comment-wrapper .comment-author {
