@@ -8,7 +8,7 @@ Version: 0.0.3
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: fashify
-Tags: one-column, two-columns, right-sidebar, grid-layout, footer-widgets, blog, news, photography, custom-menu, custom-header, custom-colors, custom-background, featured-images, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: one-column, two-columns, right-sidebar, grid-layout, footer-widgets, blog, news, photography, custom-menu, custom-header, custom-colors, featured-images, full-width-template, theme-options, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -1595,19 +1595,15 @@ a:hover, a:active {
 	position: relative;
 }
 
-.search-form input {
-	padding: 0.7em;
-	font-weight: 300;
-}
-
 .search-form .search-submit {
 	position: absolute;
-	top: 3px;
-	right: 3px;
+	top: 4px;
+	right: 4px;
 	padding: 0.5em 1em;
 	width: auto;
 	border-radius: 3px;
 	color: #fff;
+	font-size: 15px;
 }
 
 /* Footer */
@@ -1893,7 +1889,7 @@ h2.entry-title a:hover {
 	font-size: 12px;
 	font-style: italic;
 	color: #b4b4b4;
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 }
 
 .entry-meta div {

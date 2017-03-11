@@ -151,7 +151,7 @@ if ( ! function_exists( 'fashify_comments' ) ) :
  * @return void
  */
  function fashify_comments( $comment, $args, $depth ) {
- 	$GLOBALS['comment'] = $comment;
+ 	
  	switch ( $comment->comment_type ) :
  		case 'pingback' :
  		case 'trackback' :

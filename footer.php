@@ -39,7 +39,7 @@
 			<div class="container">
 
 				<div class="site-copyright">
-					<?php printf( esc_html__( 'Copyright &copy; %1$s %2$s. All Rights Reserved.', 'fashify' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+					<?php printf( esc_html__( 'Copyright &copy; %1$s %2$s. All Rights Reserved.', 'fashify' ), date_i18n( __('Y', 'fashify') ), get_bloginfo( 'name' ) ); ?>
 				</div>
 
 

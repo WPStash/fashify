@@ -30,7 +30,7 @@
             <!-- end .entry-header -->
 
             <div class="entry-content">
-                <p><?php  echo wp_trim_words( get_the_content(), apply_filters( 'fashify_content_list_except_lenght', 25 ), '...' ) ?></p>
+                <?php  the_excerpt() ?>
             </div><!-- .entry-content -->
     </div>
 </article><!-- #post-## -->

@@ -16,9 +16,7 @@ $layout = get_theme_mod( 'site_layout', 'right-sidebar' );
 		<main id="main" class="site-main" role="main">
 
 		<?php
-		global $wp_query;
-		$total_pages = $wp_query->max_num_pages;
-		$current_page = max(1, get_query_var('paged'));
+
 		$archive_layout = get_theme_mod( 'fashify_archive_layout', 'default' );
 		if ( have_posts() ) : ?>
 
@@ -59,16 +57,16 @@ $layout = get_theme_mod( 'site_layout', 'right-sidebar' );
 
 		endif;
 
-		if (  $wp_query->max_num_pages > 1 ) {
-			echo '<div class="post-pagination">';
-			the_posts_pagination(array(
-				'prev_next' => true,
-				'prev_text' => '',
-				'next_text' => '',
-				'before_page_number' => '<span class="screen-reader-text">' . esc_html__('Page', 'fashify') . ' </span>',
-			));
-			echo '</div>';
-		}
+
+		echo '<div class="post-pagination">';
+		the_posts_pagination(array(
+			'prev_next' => true,
+			'prev_text' => '',
+			'next_text' => '',
+			'before_page_number' => '<span class="screen-reader-text">' . esc_html__('Page', 'fashify') . ' </span>',
+		));
+		echo '</div>';
+
 		?>
 
 		</main><!-- #main -->

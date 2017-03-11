@@ -29,9 +29,8 @@
             $staff_picks = new WP_Query( $args );
 
             if ( $staff_picks->have_posts() ) :
-			    while( $staff_picks->have_posts() ): $staff_picks->the_post(); global $post;
+			    while( $staff_picks->have_posts() ): $staff_picks->the_post();
             ?>
-
 
 			<article id="post-<?php the_ID(); ?>-recent" <?php post_class(); ?>>
 
@@ -54,7 +53,7 @@
             endif;
             ?>
 
-    		<?php wp_reset_query(); ?>
+    		<?php wp_reset_postdata(); ?>
         </div>
 	</div>
 

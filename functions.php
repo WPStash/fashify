@@ -69,7 +69,6 @@ function fashify_setup() {
 	add_theme_support( 'html5', array(
 		'search-form',
 		'comment-form',
-		'comment-list',
 		'gallery',
 		'caption',
 	) );
@@ -103,7 +102,7 @@ function fashify_fonts_url() {
 	 * supported by Libre Frankin, translate this to 'off'. Do not translate
 	 * into your own language.
 	 */
-	$libre_franklin = _x( 'on', 'libre_franklin font: on or off', 'twentyseventeen' );
+	$libre_franklin = _x( 'on', 'libre_franklin font: on or off', 'fashify' );
 	if ( 'off' !== $libre_franklin ) {
 		$font_families = array();
 		$font_families[] = 'Libre Franklin:300,300i,400,400i,600,600i,800,800i';
@@ -157,10 +156,9 @@ function fashify_scripts() {
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/assets/css/font-awesome.min.css', array(), '4.5' );
 	wp_enqueue_style( 'fashify-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'jquery' );
-	wp_enqueue_script( 'fashify-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'fashify-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array( 'jquery' ), '20151215', true );
 
-	wp_enqueue_script( 'fashify-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'fashify-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array( 'jquery' ), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

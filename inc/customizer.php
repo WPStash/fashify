@@ -21,59 +21,6 @@ function fashify_customize_register( $wp_customize ) {
 		/*  Section: Fashify Options
 		/*------------------------------------------------------------------------*/
 
-		/* staff picks	*/
-		$wp_customize->add_section( 'staff_pick' ,
-			array(
-				'priority'    => 35,
-				'title'       => esc_html__( 'Staff Picks', 'fashify' ),
-				'description' => '',
-			)
-		);
-
-			$wp_customize->add_setting( 'fashify_staff_picks',
-				array(
-					'sanitize_callback'	=> 'fashify_sanitize_checkbox',
-					'default'           => true,
-				)
-			);
-
-			$wp_customize->add_control( 'fashify_staff_picks',
-				array(
-					'label' 		=> esc_html__( 'Show/Hide the staff pick', 'fashify' ),
-					'type'			=> 'checkbox',
-					'section' 		=> 'staff_pick'
-				)
-			);
-
-			$wp_customize->add_setting( 'fashify_staff_picks_cat' );
-
-			$wp_customize->add_control( new Fashify_Category_Dropdown_Custom_Control(
-				$wp_customize,
-				'fashify_staff_picks_cat',
-				array(
-		            'label'   => esc_html__( 'Staff Category:', 'fashify' ),
-		            'section' => 'staff_pick',
-					'settings' => 'fashify_staff_picks_cat'
-		        	)
-				)
-			);
-
-
-			$wp_customize->add_setting( 'number_staff_picks',
-				array(
-					'sanitize_callback'		=> 'fashify_sanitize_number_absint',
-					'default'           	=> '4',
-				)
-			);
-			$wp_customize->add_control( 'number_staff_picks',
-				array(
-					'label' 		=> esc_html__( 'Number:', 'fashify' ),
-					'type'			=> 'text',
-					'section' 		=> 'staff_pick',
-					'description'	=> esc_html__( 'Enter number post display on Staff section.', 'fashify' )
-				)
-			);
-
 		/* theme options */
 		$wp_customize->add_panel( 'theme_options' ,
 				array(
@@ -131,10 +78,6 @@ function fashify_customize_register( $wp_customize ) {
 					)
 				);
 
-
-
-
-
 			// frontpage layout
 			$wp_customize->add_section( 'home_layout' ,
 				array(
@@ -169,7 +112,59 @@ function fashify_customize_register( $wp_customize ) {
 					)
 				);
 
+				/* staff picks	*/
+				$wp_customize->add_section( 'staff_pick' ,
+					array(
+						'priority'    => 35,
+						'title'       => esc_html__( 'Staff Picks', 'fashify' ),
+						'description' => '',
+						'panel'       => 'theme_options',
+					)
+				);
 
+					$wp_customize->add_setting( 'fashify_staff_picks',
+						array(
+							'sanitize_callback'	=> 'fashify_sanitize_checkbox',
+							'default'           => true,
+						)
+					);
+
+					$wp_customize->add_control( 'fashify_staff_picks',
+						array(
+							'label' 		=> esc_html__( 'Show/Hide the staff pick', 'fashify' ),
+							'type'			=> 'checkbox',
+							'section' 		=> 'staff_pick'
+						)
+					);
+
+					$wp_customize->add_setting( 'fashify_staff_picks_cat' );
+
+					$wp_customize->add_control( new Fashify_Category_Dropdown_Custom_Control(
+						$wp_customize,
+						'fashify_staff_picks_cat',
+						array(
+							'label'   => esc_html__( 'Staff Category:', 'fashify' ),
+							'section' => 'staff_pick',
+							'settings' => 'fashify_staff_picks_cat'
+							)
+						)
+					);
+
+
+					$wp_customize->add_setting( 'number_staff_picks',
+						array(
+							'sanitize_callback'		=> 'fashify_sanitize_number_absint',
+							'default'           	=> '4',
+						)
+					);
+					$wp_customize->add_control( 'number_staff_picks',
+						array(
+							'label' 		=> esc_html__( 'Number:', 'fashify' ),
+							'type'			=> 'text',
+							'section' 		=> 'staff_pick',
+							'description'	=> esc_html__( 'Enter number post display on Staff section.', 'fashify' )
+						)
+					);
 
 
 				// Primary color setting
@@ -219,10 +214,6 @@ function fashify_sanitize_file_url( $file_url ) {
 		$output = esc_url( $file_url );
 	}
 	return $output;
-}
-
-function fashify_sanitize_number( $input ) {
-    return force_balance_tags( $input );
 }
 
 function fashify_sanitize_select( $input, $setting ) {

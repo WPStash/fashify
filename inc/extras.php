@@ -55,14 +55,14 @@ add_filter( 'post_class', 'fashify_no_thumbnail_class' );
  * @param int $length Excerpt length.
  * @return int (Maybe) modified excerpt length.
  */
-if ( ! function_exists( 'fashify_custom_excerpt_length' ) ) :
+if ( ! function_exists( 'fashify_custom_excerpt_length' ) && ! is_admin() ) :
 function fashify_custom_excerpt_length( $length ) {
     return 40;
 }
 add_filter( 'excerpt_length', 'fashify_custom_excerpt_length', 999 );
 endif;
 
-if ( ! function_exists( 'fashify_excerpt_more' ) ) :
+if ( ! function_exists( 'fashify_excerpt_more' ) && ! is_admin() ) :
 function fashify_excerpt_more( $more ) {
     return '...';
 }
@@ -72,8 +72,8 @@ endif;
 function fashify_search_form( $form ) {
     $form = '<form role="search" method="get" id="searchform" class="search-form" action="' . esc_url( home_url( '/' ) ) . '" >
     <label for="s">
-		<span class="screen-reader-text">' . __( 'Search for:', 'gatsby' ) . '</span>
-		<input type="text" class="search-field" placeholder="'. esc_attr__( 'Search', 'gatsby' ) .'" value="' . get_search_query() . '" name="s" id="s" />
+		<span class="screen-reader-text">' . __( 'Search for:', 'fashify' ) . '</span>
+		<input type="text" class="search-field" placeholder="'. esc_attr__( 'Search', 'fashify' ) .'" value="' . get_search_query() . '" name="s" id="s" />
 	</label>
 	<button type="submit" class="search-submit">
         <i class="fa fa-search"></i>

@@ -36,27 +36,13 @@
 	<?php } ?>
 
 	<?php
-	$prev_link = get_previous_post_link( '%link', '%title', true );
-	$next_link = get_next_post_link( '%link', '%title', true );
+	the_post_navigation( array(
+			'prev_text'                  => '<span>' . esc_html__( 'Previous article', 'fashify' ) .'</span> %title',
+			'next_text'                  => '<span>' . esc_html__( 'Next article', 'fashify' ) .'</span> %title',
+			'in_same_term'               => true,
+			'screen_reader_text' 		 => esc_html__( 'Continue Reading', 'fashify' ),
+	) );
 	?>
-	<?php if ( $prev_link || $next_link ) : ?>
-	<div class="navigation">
-		<div class="nav-links">
-			<div class="nav-previous">
-				<?php if ( $prev_link ) { ?>
-				<span><?php esc_html_e( 'Previous article', 'fashify' ) ?></span>
-				<h5><?php echo $prev_link; ?></h5>
-				<?php } ?>
-			</div>
-			<div class="nav-next">
-				<?php if ( $next_link ) { ?>
-				<span><?php esc_html_e( 'Next article', 'fashify' ) ?></span>
-				<h5><?php echo $next_link; ?></h5>
-				<?php } ?>
-			</div>
-		</div>
-	</div>
-	<?php endif; ?>
 
 	<footer class="entry-footer">
 		<?php fashify_entry_footer(); ?>
