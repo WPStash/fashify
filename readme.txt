@@ -1,15 +1,5 @@
 === Fashify ===
 
-Contributors: famethemes
-Tags: one-column, two-columns, right-sidebar, grid-layout, footer-widgets, blog, news, photography, custom-menu, custom-header, custom-colors,featured-images, full-width-template, theme-options, threaded-comments, translation-ready
-
-
-Requires at least: 4.0
-Tested up to: 4.4.2
-Stable tag: 0.0.3
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
 Fashify Theme, Copyright 2016 FameThemes
 Fashify is distributed under the terms of the GNU GPL
 
@@ -33,8 +23,3 @@ A fashionable WordPress blog theme.
 * normalize.css http://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](http://opensource.org/licenses/MIT)
 * Font Awesome, SIL OFL 1.1. (http://scripts.sil.org/OFL) http://fortawesome.github.io/Font-Awesome/license/
 * Image use in screenshot: https://www.pexels.com/photo/desk-coffee-chemex-phone-laptop-6599/. [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
-
-== Changelog ==
-
-= 0.0.3 =
-* Initial release
