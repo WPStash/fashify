@@ -137,7 +137,10 @@ function fashify_customize_register( $wp_customize ) {
 						)
 					);
 
-					$wp_customize->add_setting( 'fashify_staff_picks_cat' );
+					$wp_customize->add_setting( 'fashify_staff_picks_cat',
+						array(
+						'sanitize_callback'	=> 'sanitize_text_field'					
+					));
 
 					$wp_customize->add_control( new Fashify_Category_Dropdown_Custom_Control(
 						$wp_customize,
