@@ -78,39 +78,7 @@ function fashify_customize_register( $wp_customize ) {
 					)
 				);
 
-			// frontpage layout
-			$wp_customize->add_section( 'home_layout' ,
-				array(
-					'priority'    => 3,
-					'title'       => esc_html__( 'Front Page', 'fashify' ),
-					'description' => '',
-					'panel'       => 'theme_options',
-				)
-			);
-				// settings
-				$wp_customize->add_setting( 'fashify_homepage_layout',
-					array(
-						'default'           => 'default',
-						'sanitize_callback'	=> 'fashify_sanitize_select',
-					)
-				);
-
-				$wp_customize->add_control( 'fashify_homepage_layout',
-					array(
-						'label' 		=> esc_html__( 'Frontpage layout', 'fashify' ),
-						'type'			=> 'radio',
-						'description'   => 'Only apply when front page display is latest posts',
-						'section' 	=> 'home_layout',
-						'choices'   => array(
-							'default' => esc_html__( 'Default', 'fashify' ),
-							'home1'   => esc_html__( 'Layout 1', 'fashify' ),
-							'home2'   => esc_html__( 'Layout 2', 'fashify' ),
-							'home3'   => esc_html__( 'Layout 3', 'fashify' ),
-							'home4'   => esc_html__( 'Layout 4', 'fashify' ),
-							'home5'   => esc_html__( 'Layout 5', 'fashify' )
-						)
-					)
-				);
+			
 
 				/* staff picks	*/
 				$wp_customize->add_section( 'staff_pick' ,
@@ -139,7 +107,7 @@ function fashify_customize_register( $wp_customize ) {
 
 					$wp_customize->add_setting( 'fashify_staff_picks_cat',
 						array(
-						'sanitize_callback'	=> 'sanitize_text_field'					
+						'sanitize_callback'	=> 'sanitize_text_field'
 					));
 
 					$wp_customize->add_control( new Fashify_Category_Dropdown_Custom_Control(

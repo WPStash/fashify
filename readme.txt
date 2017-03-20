@@ -1,6 +1,6 @@
 === Fashify ===
 
-Fashify Theme, Copyright 2016 FameThemes
+Fashify Theme, Copyright 2017 FameThemes
 Fashify is distributed under the terms of the GNU GPL
 
 == Description ==
@@ -15,8 +15,6 @@ A fashionable WordPress blog theme.
 
 == Frequently Asked Questions ==
 
-
-
 == Credits ==
 
 * Based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -24,3 +22,9 @@ A fashionable WordPress blog theme.
 * Font Awesome License, SIL OFL 1.1. (http://scripts.sil.org/OFL) http://fontawesome.io/license/
 * Font Awesome Code License, MIT. http://opensource.org/licenses/mit-license.html
 * Image use in screenshot: https://www.pexels.com/photo/desk-coffee-chemex-phone-laptop-6599/. [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+== Changelog ==
+
+= 0.0.7 =
+* Hide home layout settings to improve in next version.
+* Update screenshot and change theme URI.
