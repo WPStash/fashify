@@ -25,6 +25,7 @@ A fashionable WordPress blog theme.
 
 == Changelog ==
 
-= 0.0.7 =
+= 0.0.8 =
 * Hide home layout settings to improve in next version.
 * Update screenshot and change theme URI.
+* Update theme author URI.

@@ -236,7 +236,7 @@ if ( ! function_exists( 'fashify_footer_site_info' ) ) {
     {
         ?>
 		<div class="theme-info-text">
-        	<?php printf( esc_html__( 'Fashify Theme by %1$s', 'fashify' ), '<a href="https://wpstash.com/" rel="designer">WPStash</a>' ); ?>
+        	<?php printf( esc_html__( 'Fashify Theme by %1$s', 'fashify' ), '<a href="https://www.famethemes.com/" rel="designer">FameThemes</a>' ); ?>
 		</div>
 		<?php
     }
