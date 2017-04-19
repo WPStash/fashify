@@ -30,7 +30,7 @@ function fashify_customize_register( $wp_customize ) {
 				)
 			);
 
-			// general
+			// Global
 			$wp_customize->add_section( 'global' ,
 				array(
 					'priority'    => 3,
@@ -78,7 +78,39 @@ function fashify_customize_register( $wp_customize ) {
 					)
 				);
 
-			
+			// frontpage layout
+			$wp_customize->add_section( 'home_layout' ,
+				array(
+					'priority'    => 3,
+					'title'       => esc_html__( 'Front Page', 'fashify' ),
+					'description' => '',
+					'panel'       => 'theme_options',
+				)
+			);
+				// settings
+				$wp_customize->add_setting( 'fashify_homepage_layout',
+					array(
+						'default'           => 'default',
+						'sanitize_callback'	=> 'fashify_sanitize_select',
+					)
+				);
+
+				$wp_customize->add_control( 'fashify_homepage_layout',
+					array(
+						'label' 		=> esc_html__( 'Frontpage layout', 'fashify' ),
+						'type'			=> 'radio',
+						'description'   => 'Only apply when front page display is latest posts',
+						'section' 	=> 'home_layout',
+						'choices'   => array(
+							'default' => esc_html__( 'Default', 'fashify' ),
+							'home1'   => esc_html__( 'Layout 1', 'fashify' ),
+							'home2'   => esc_html__( 'Layout 2', 'fashify' ),
+							'home3'   => esc_html__( 'Layout 3', 'fashify' ),
+							'home4'   => esc_html__( 'Layout 4', 'fashify' ),
+							'home5'   => esc_html__( 'Layout 5', 'fashify' )
+						)
+					)
+				);
 
 				/* staff picks	*/
 				$wp_customize->add_section( 'staff_pick' ,
@@ -141,7 +173,7 @@ function fashify_customize_register( $wp_customize ) {
 				// Primary color setting
 				$wp_customize->add_setting( 'primary_color' , array(
 				    'default'     => '#f75357',
-					'sanitize_callback'	=> 'fashify_sanitize_hex_color',
+					'sanitize_callback'	=> 'sanitize_hex_color',
 				) );
 
 				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_color', array(
@@ -153,7 +185,7 @@ function fashify_customize_register( $wp_customize ) {
 				// Second color setting
 				$wp_customize->add_setting( 'secondary_color' , array(
 				    'default'     => '#444',
-					'sanitize_callback'	=> 'fashify_sanitize_hex_color',
+					'sanitize_callback'	=> 'sanitize_hex_color',
 				) );
 				$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
 					'label'        => esc_html__( 'Secondary Color', 'fashify' ),
@@ -178,36 +210,14 @@ add_action( 'customize_preview_init', 'fashify_customize_preview_js' );
 /*  fashify Sanitize Functions.
 /*------------------------------------------------------------------------*/
 
-function fashify_sanitize_file_url( $file_url ) {
-	$output = '';
-	$filetype = wp_check_filetype( $file_url );
-	if ( $filetype["ext"] ) {
-		$output = esc_url( $file_url );
-	}
-	return $output;
-}
-
 function fashify_sanitize_select( $input, $setting ) {
 	$input = sanitize_key( $input );
 	$choices = $setting->manager->get_control( $setting->id )->choices;
 	return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }
 
-function fashify_sanitize_hex_color( $color ) {
-	if ( $color === '' ) {
-		return '';
-	}
-	if ( preg_match('|^#([A-Fa-f0-9]{3}){1,2}$|', $color ) ) {
-		return $color;
-	}
-	return null;
-}
 function fashify_sanitize_checkbox( $checked ) {
     return ( ( isset( $checked ) && true == $checked ) ? true : false );
-}
-
-function fashify_sanitize_text( $string ) {
-	return wp_kses_post( balanceTags( $string ) );
 }
 
 function fashify_sanitize_number_absint( $number, $setting ) {
@@ -217,3 +227,4 @@ function fashify_sanitize_number_absint( $number, $setting ) {
 	// If the input is an absolute integer, return it; otherwise, return the default
 	return ( $number ? $number : $setting->default );
 }
+
