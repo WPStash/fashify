@@ -1,10 +1,10 @@
 /*
 Theme Name: Fashify
-Theme URI: https://www.famethemes.com/themes/fashify/
+Theme URI: https://freeresponsivethemes.com/fashify/
 Author: FameThemes
 Author URI: https://www.famethemes.com
 Description: A fashionable WordPress blog theme.
-Version: 0.0.8
+Version: 0.0.9
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: fashify
@@ -269,7 +269,7 @@ select,
 textarea {
 	color: #444;
 	font-family: "Libre Franklin", Georgia, serif;
-	font-size: 13px;
+	font-size: 15px;
 	line-height: 1.5;
 }
 
@@ -2042,7 +2042,7 @@ h2.entry-title a:hover {
 # Infinite scroll
 --------------------------------------------------------------*/
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .posts-navigation,
+.infinite-scroll .navigation,
 .infinite-scroll.neverending .site-footer {
 	/* Theme Footer (when set to scrolling) */
 	display: none;
@@ -2053,6 +2053,20 @@ h2.entry-title a:hover {
 	display: block;
 }
 
+#infinite-handle span {
+	background: none;
+	color: #888;
+	padding: 0;
+	font-size: 22px;
+}
+#infinite-handle span button {
+	text-transform: none;
+	font-size: 22px;
+}
+#infinite-handle span button:hover {
+	color: #000;
+	text-decoration: underline;
+}
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/

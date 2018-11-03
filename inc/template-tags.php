@@ -236,7 +236,7 @@ if ( ! function_exists( 'fashify_footer_site_info' ) ) {
     {
         ?>
 		<div class="theme-info-text">
-        	<?php printf( esc_html__( 'Fashify Theme by %1$s', 'fashify' ), '<a href="https://www.famethemes.com/" rel="designer">FameThemes</a>' ); ?>
+        	<?php printf( esc_html__( 'Fashify Theme by %1$s', 'fashify' ), '<a href="https://freeresponsivethemes.com/fashify/" rel="nofollow">FRT</a>' ); ?>
 		</div>
 		<?php
     }

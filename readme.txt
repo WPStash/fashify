@@ -25,6 +25,12 @@ A fashionable WordPress blog theme.
 
 == Changelog ==
 
+= 0.0.9 =
+* Update Footer Author Name & Link
+* Support Gutenberg
+* Support Jetpack Infinite Scroll
+* Support Jetpack Content Options
+
 = 0.0.8 =
 * Hide home layout settings to improve in next version.
 * Update screenshot and change theme URI.
