@@ -68,18 +68,3 @@ function fashify_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'fashify_excerpt_more' );
 endif;
-
-function fashify_search_form( $form ) {
-    $form = '<form role="search" method="get" id="searchform" class="search-form" action="' . esc_url( home_url( '/' ) ) . '" >
-    <label for="s">
-		<span class="screen-reader-text">' . __( 'Search for:', 'fashify' ) . '</span>
-		<input type="text" class="search-field" placeholder="'. esc_attr__( 'Search', 'fashify' ) .'" value="' . get_search_query() . '" name="s" id="s" />
-	</label>
-	<button type="submit" class="search-submit">
-        <i class="fa fa-search"></i>
-    </button>
-    </form>';
-
-    return $form;
-}
-add_filter( 'get_search_form', 'fashify_search_form' );

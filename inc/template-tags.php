@@ -259,6 +259,7 @@ if ( ! function_exists( 'fashify_cusotm_inline_style' ) ) {
 				 {
 					 color : {$primary};
 				 }
+				.wp-block-search .wp-block-search__button,
 				button, input[type=\"button\"], input[type=\"reset\"], input[type=\"submit\"]{
                     background: {$primary};
 					border-color : {$primary};

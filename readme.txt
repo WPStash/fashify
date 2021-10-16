@@ -24,6 +24,8 @@ A fashionable WordPress blog theme.
 * Image use in screenshot: https://www.pexels.com/photo/desk-coffee-chemex-phone-laptop-6599/. [CC0](https://creativecommons.org/publicdomain/zero/1.0/)
 
 == Changelog ==
+= 1.0 =
+* Update WordPress 5.8 Compatible.
 
 = 0.0.9 =
 * Update Footer Author Name & Link
